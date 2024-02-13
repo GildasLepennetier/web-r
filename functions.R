@@ -3,7 +3,7 @@ library(tidyverse)
 library(robotstxt)
 library(rvest)
 
-setup_scraping_env(ROOT_LINK) {
+setup_scraping_env <- function(ROOT_LINK) {
   ROBOTS <- robotstxt(ROOT_LINK)
   SESSION <- session(ROOT_LINK)
   if (!ROBOTS$check(ROOT_LINK)) {stop(paste0("robots.txt does not allow scraping: ", ROOT_LINK))}
